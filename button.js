@@ -1,0 +1,5 @@
+const SHUFFLE_BTN = "SHUFFLE_BTN";
+const START_BTN = "START_BTN";
+const RESET_BTN = "RESET_BTN";
+
+export { SHUFFLE_BTN, START_BTN, RESET_BTN };

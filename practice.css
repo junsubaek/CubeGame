@@ -1,0 +1,531 @@
+@keyframes reset-animation {
+  from {
+    transform: rotateY(0);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+.reset-ani {
+  animation: reset-animation 1s;
+}
+
+body {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  user-select: none;
+}
+
+.play-cube {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.title {
+  font-size: 100px;
+  margin: 0;
+  margin-top: 30px;
+}
+
+.container-cube {
+  perspective: 4000px;
+  display: grid;
+  grid-template-columns: 40px 40px 500px 40px 40px;
+  grid-template-rows: 40px 40px 500px 40px 40px;
+}
+
+.move-up-all {
+  grid-column: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.move-up {
+  grid-column: 3;
+  grid-row: 2;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.move-down-all {
+  grid-row: 5;
+  grid-column: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.move-down {
+  grid-row: 4;
+  grid-column: 3;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.move-left-all {
+  grid-row: 3;
+  grid-column: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.move-left {
+  grid-row: 3;
+  grid-column: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.move-right-all {
+  grid-row: 3;
+  grid-column: 5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.move-right {
+  grid-row: 3;
+  grid-column: 4;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+nav {
+  width: 400px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.timer {
+  width: 270px;
+  height: 50px;
+  background-color: #3a3d49;
+  border-radius: 7px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.timer span {
+  font-size: 30px;
+  color: yellow;
+  font-weight: bold;
+}
+
+.controller {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.shuffle button,
+.start button,
+.reset button {
+  width: 80px;
+  height: 30px;
+  margin: 0 5px;
+  background-color: white;
+  border: #3c3555 2.5px solid;
+  border-radius: 10px;
+  color: #3a3d49;
+  font-weight: bold;
+}
+
+.shuffle button:hover,
+.start button:hover,
+.reset button:hover {
+  color: white;
+  background-color: orange;
+  border: none;
+}
+
+#cube {
+  grid-row: 3;
+  grid-column: 3;
+  margin-top: 10%;
+  margin-left: 10%;
+  width: 400px;
+  height: 400px;
+  transform-style: preserve-3d;
+  transition: 0.2s;
+  transform: rotate3d(150, 550, -50, -35deg);
+  position: relative;
+}
+
+.cube-LeftRight {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.cube-UpDown {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cube-top {
+  width: 300px;
+  height: 100px;
+  transform-style: preserve-3d;
+  transition: 0.2s;
+}
+
+.cube-middle {
+  width: 300px;
+  height: 100px;
+  transform-style: preserve-3d;
+  transition: 0.2s;
+}
+
+.cube-bottom {
+  width: 300px;
+  height: 100px;
+  transform-style: preserve-3d;
+  transition: 0.2s;
+}
+
+.cube-left {
+  position: absolute;
+  left: 50px;
+  width: 100px;
+  height: 300px;
+  transform-style: preserve-3d;
+  transition: 0.2s;
+}
+
+.cube-center {
+  position: absolute;
+  width: 100px;
+  height: 300px;
+  transform-style: preserve-3d;
+  transition: 0.2s;
+}
+
+.cube-right {
+  position: absolute;
+  right: 50px;
+  width: 100px;
+  height: 300px;
+  transform-style: preserve-3d;
+  transition: 0.2s;
+}
+
+.small-cube {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  transform-style: preserve-3d;
+}
+
+.wall {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 4px;
+  border: white solid 1px;
+}
+
+.top {
+  background-color: #c0a4b4;
+  transform: rotateX(90deg) translate3d(0, -0px, 50px);
+}
+.bottom {
+  background-color: #3a3d49;
+  transform: rotateX(90deg) translate3d(0, 0px, -50px);
+}
+.right {
+  background-color: #3c3555;
+  transform: rotateY(90deg) translate3d(00px, 0, 50px);
+}
+.left {
+  background-color: #9d5679;
+
+  transform: rotateY(90deg) translate3d(00px, 0, -50px);
+}
+.front {
+  background-color: #546a61;
+  transform: translate3d(0, 0, 50px);
+}
+.back {
+  background-color: #e1dec3;
+  transform: translate3d(0, 0, -50px);
+}
+#small-cube-1 {
+  transform: translate3d(0, 0, -100px) scale(0.98);
+}
+
+#small-cube-2 {
+  transform: translate3d(100px, 0, -100px) scale(0.98);
+}
+.cube-center #small-cube-2 {
+  transform: translate3d(0px, 0, -100px) scale(0.98);
+}
+#small-cube-3 {
+  transform: translate3d(200px, 0, -100px) scale(0.98);
+}
+.cube-right #small-cube-3 {
+  transform: translate3d(0px, 0px, -100px) scale(0.98);
+}
+#small-cube-4 {
+  transform: translate3d(0, 0, 0) scale(0.98);
+}
+#small-cube-5 {
+  transform: translate3d(100px, 0, 0) scale(0.98);
+}
+.cube-center #small-cube-5 {
+  transform: translate3d(0px, 0, 0px) scale(0.98);
+}
+#small-cube-6 {
+  transform: translate3d(200px, 0, 0) scale(0.98);
+}
+.cube-right #small-cube-6 {
+  transform: translate3d(0px, 0px, 00px) scale(0.98);
+}
+#small-cube-7 {
+  transform: translate3d(0px, 0, 100px) scale(0.98);
+}
+#small-cube-8 {
+  transform: translate3d(100px, 0, 100px) scale(0.98);
+}
+.cube-center #small-cube-8 {
+  transform: translate3d(0px, 0, 100px) scale(0.98);
+}
+#small-cube-9 {
+  transform: translate3d(200px, 0, 100px) scale(0.98);
+}
+.cube-right #small-cube-9 {
+  transform: translate3d(0px, 0px, 100px) scale(0.98);
+}
+
+#small-cube-10 {
+  transform: translate3d(0px, 0px, -100px) scale(0.98);
+}
+.cube-left #small-cube-10 {
+  transform: translate3d(0px, 100px, -100px) scale(0.98);
+}
+#small-cube-11 {
+  transform: translate3d(100px, 0px, -100px) scale(0.98);
+}
+.cube-center #small-cube-11 {
+  transform: translate3d(0, 100px, -100px) scale(0.98);
+}
+#small-cube-12 {
+  transform: translate3d(200px, 0px, -100px) scale(0.98);
+}
+.cube-right #small-cube-12 {
+  transform: translate3d(0px, 100px, -100px) scale(0.98);
+}
+#small-cube-13 {
+  transform: translate3d(0px, 0px, 0) scale(0.98);
+}
+.cube-left #small-cube-13 {
+  transform: translate3d(0px, 100px, 00px) scale(0.98);
+}
+#small-cube-14 {
+  transform: translate3d(100px, 0px, 0) scale(0.98);
+}
+.cube-center #small-cube-14 {
+  transform: translate3d(0, 100px, 0px) scale(0.98);
+}
+#small-cube-15 {
+  transform: translate3d(200px, 0px, 0) scale(0.98);
+}
+.cube-right #small-cube-15 {
+  transform: translate3d(0px, 100px, 00px) scale(0.98);
+}
+#small-cube-16 {
+  transform: translate3d(0px, 0px, 100px) scale(0.98);
+}
+.cube-left #small-cube-16 {
+  transform: translate3d(0px, 100px, 100px) scale(0.98);
+}
+#small-cube-17 {
+  transform: translate3d(100px, 0px, 100px) scale(0.98);
+}
+.cube-center #small-cube-17 {
+  transform: translate3d(0px, 100px, 100px) scale(0.98);
+}
+#small-cube-18 {
+  transform: translate3d(200px, 0px, 100px) scale(0.98);
+}
+.cube-right #small-cube-18 {
+  transform: translate3d(0px, 100px, 100px) scale(0.98);
+}
+
+#small-cube-19 {
+  transform: translate3d(0, 0px, -100px) scale(0.98);
+}
+.cube-left #small-cube-19 {
+  transform: translate3d(0px, 200px, -100px) scale(0.98);
+}
+#small-cube-20 {
+  transform: translate3d(100px, 0px, -100px) scale(0.98);
+}
+.cube-center #small-cube-20 {
+  transform: translate3d(0px, 200px, -100px) scale(0.98);
+}
+#small-cube-21 {
+  transform: translate3d(200px, 0px, -100px) scale(0.98);
+}
+.cube-right #small-cube-21 {
+  transform: translate3d(0px, 200px, -100px) scale(0.98);
+}
+#small-cube-22 {
+  transform: translate3d(0, 0px, 0) scale(0.98);
+}
+.cube-left #small-cube-22 {
+  transform: translate3d(0px, 200px, 00px) scale(0.98);
+}
+#small-cube-23 {
+  transform: translate3d(100px, 0px, 0) scale(0.98);
+}
+.cube-center #small-cube-23 {
+  transform: translate3d(0px, 200px, 0px) scale(0.98);
+}
+#small-cube-24 {
+  transform: translate3d(200px, 0px, 0) scale(0.98);
+}
+.cube-right #small-cube-24 {
+  transform: translate3d(0px, 200px, 00px) scale(0.98);
+}
+#small-cube-25 {
+  transform: translate3d(0, 0px, 100px) scale(0.98);
+}
+.cube-left #small-cube-25 {
+  transform: translate3d(0px, 200px, 100px) scale(0.98);
+}
+#small-cube-26 {
+  transform: translate3d(100px, 0px, 100px) scale(0.98);
+}
+.cube-center #small-cube-26 {
+  transform: translate3d(0px, 200px, 100px) scale(0.98);
+}
+#small-cube-27 {
+  transform: translate3d(200px, 0px, 100px) scale(0.98);
+}
+.cube-right #small-cube-27 {
+  transform: translate3d(0px, 200px, 100px) scale(0.98);
+}
+
+@media (max-height: 900px) {
+  .title {
+    display: none;
+  }
+}
+
+@media (max-width: 1300px) {
+  .screen {
+    display: none;
+  }
+}
+
+@media (min-width: 1300px) {
+  .play-cube {
+    width: 55vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .screen {
+    width: 45vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .container-monitor {
+    width: 560px;
+    height: 740px;
+    min-width: 550px;
+    min-height: 730px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+  }
+
+  .container-monitor > div {
+    position: absolute;
+    width: 180px;
+    height: 180px;
+  }
+
+  .monitor {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .monitor-front {
+    position: relative;
+    top: 185px;
+  }
+
+  .monitor-back {
+    position: relative;
+    top: 555px;
+  }
+
+  .monitor-left {
+    position: relative;
+    left: 2.5px;
+    top: 185px;
+  }
+
+  .monitor-right {
+    position: relative;
+    top: 185px;
+    right: 2.7px;
+  }
+
+  .monitor-top {
+    position: relative;
+    top: 0;
+  }
+
+  .monitor-bottom {
+    position: relative;
+    top: 370px;
+  }
+
+  .small-monitor {
+    width: 56px;
+    height: 56px;
+    border: 1px solid black;
+    border-radius: 4px;
+    margin: 1px;
+    font-size: 30px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+  }
+}
