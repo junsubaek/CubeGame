@@ -357,7 +357,7 @@ import { SHUFFLE_BTN, START_BTN, RESET_BTN } from "./button.js";
     }, 700);
   };
 
-  const rotateTopOrBottom = (position) => {
+  const rotateRight = (position) => {
     const tempCubeArr = [];
     for (let i = 0; i < 6; i++) {
       tempCubeArr.push([]);
@@ -379,7 +379,7 @@ import { SHUFFLE_BTN, START_BTN, RESET_BTN } from "./button.js";
     }
   };
 
-  const rotateTopOrBottomReverse = (position) => {
+  const rotateLeft = (position) => {
     const tempCubeArr = [];
     for (let i = 0; i < 6; i++) {
       tempCubeArr.push([]);
@@ -402,7 +402,7 @@ import { SHUFFLE_BTN, START_BTN, RESET_BTN } from "./button.js";
     }
   };
 
-  const rotateLeftOrRight = (position) => {
+  const rotateDown = (position) => {
     const tempCubeArr = [];
     for (let i = 0; i < 6; i++) {
       tempCubeArr.push([]);
@@ -425,7 +425,7 @@ import { SHUFFLE_BTN, START_BTN, RESET_BTN } from "./button.js";
     }
   };
 
-  const rotateLeftOrRightReverse = (position) => {
+  const rotateUp = (position) => {
     const tempCubeArr = [];
     for (let i = 0; i < 6; i++) {
       tempCubeArr.push([]);
@@ -467,7 +467,7 @@ import { SHUFFLE_BTN, START_BTN, RESET_BTN } from "./button.js";
       cubeArr[3][0][i] = tempArr2[i];
     }
 
-    rotateTopOrBottom(color.PINK);
+    rotateRight(color.PINK);
   };
 
   const rotateTopRight = () => {
@@ -489,7 +489,7 @@ import { SHUFFLE_BTN, START_BTN, RESET_BTN } from "./button.js";
       cubeArr[3][0][i] = tempArr2[2 - i];
     }
 
-    rotateTopOrBottomReverse(color.PINK);
+    rotateLeft(color.PINK);
   };
 
   const rotateMiddleLeft = () => {
@@ -551,7 +551,7 @@ import { SHUFFLE_BTN, START_BTN, RESET_BTN } from "./button.js";
       cubeArr[3][2][i] = tempArr2[i];
     }
 
-    rotateTopOrBottom(color.BLACK);
+    rotateRight(color.BLACK);
   };
 
   const rotateBottomRight = () => {
@@ -573,7 +573,7 @@ import { SHUFFLE_BTN, START_BTN, RESET_BTN } from "./button.js";
       cubeArr[3][2][i] = tempArr2[2 - i];
     }
 
-    rotateTopOrBottomReverse(color.BLACK);
+    rotateLeft(color.BLACK);
   };
 
   const rotateLeftAll = () => {
@@ -603,8 +603,8 @@ import { SHUFFLE_BTN, START_BTN, RESET_BTN } from "./button.js";
       }
     }
 
-    rotateTopOrBottom(color.PINK);
-    rotateTopOrBottom(color.BLACK);
+    rotateRight(color.PINK);
+    rotateRight(color.BLACK);
   };
 
   const rotateRightAll = () => {
@@ -634,8 +634,8 @@ import { SHUFFLE_BTN, START_BTN, RESET_BTN } from "./button.js";
       }
     }
 
-    rotateTopOrBottomReverse(color.PINK);
-    rotateTopOrBottomReverse(color.BLACK);
+    rotateLeft(color.PINK);
+    rotateLeft(color.BLACK);
   };
 
   const rotateLeftUp = () => {
@@ -657,7 +657,7 @@ import { SHUFFLE_BTN, START_BTN, RESET_BTN } from "./button.js";
       cubeArr[5][i][0] = tempArr2[i];
     }
 
-    rotateLeftOrRightReverse(color.RED);
+    rotateUp(color.RED);
   };
 
   const rotateLeftDown = () => {
@@ -678,7 +678,7 @@ import { SHUFFLE_BTN, START_BTN, RESET_BTN } from "./button.js";
       cubeArr[5][i][0] = tempArr[2 - i];
       cubeArr[4][i][0] = tempArr2[2 - i];
     }
-    rotateLeftOrRight(color.RED);
+    rotateDown(color.RED);
   };
 
   const rotateCenterUp = () => {
@@ -740,7 +740,7 @@ import { SHUFFLE_BTN, START_BTN, RESET_BTN } from "./button.js";
       cubeArr[5][i][2] = tempArr2[i];
     }
 
-    rotateLeftOrRightReverse(color.NAVY);
+    rotateUp(color.NAVY);
   };
 
   const rotateRightDown = () => {
@@ -762,7 +762,7 @@ import { SHUFFLE_BTN, START_BTN, RESET_BTN } from "./button.js";
       cubeArr[4][i][2] = tempArr2[2 - i];
     }
 
-    rotateLeftOrRight(color.NAVY);
+    rotateDown(color.NAVY);
   };
 
   const rotateUpAll = () => {
@@ -792,8 +792,8 @@ import { SHUFFLE_BTN, START_BTN, RESET_BTN } from "./button.js";
       }
     }
 
-    rotateLeftOrRightReverse(color.NAVY);
-    rotateLeftOrRightReverse(color.RED);
+    rotateUp(color.NAVY);
+    rotateUp(color.RED);
   };
 
   const rotateDownAll = () => {
@@ -823,8 +823,8 @@ import { SHUFFLE_BTN, START_BTN, RESET_BTN } from "./button.js";
       }
     }
 
-    rotateLeftOrRight(color.NAVY);
-    rotateLeftOrRight(color.RED);
+    rotateDown(color.NAVY);
+    rotateDown(color.RED);
   };
 
   const savePrevCubeArr = () => {
@@ -999,10 +999,12 @@ import { SHUFFLE_BTN, START_BTN, RESET_BTN } from "./button.js";
   const selectButtonEvents = (btn) => {
     switch (btn) {
       case SHUFFLE_BTN:
+        if (start) return;
         shuffleCube();
         break;
 
       case START_BTN:
+        if (start) return;
         startGame();
         break;
 
