@@ -304,7 +304,7 @@ import { SHUFFLE_BTN, START_BTN, RESET_BTN } from "./button.js";
       rotateDownAll,
     ];
 
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 10; i++) {
       const randomNumber = Math.floor(Math.random() * 12);
       shuffleCaseArray[randomNumber]();
     }
