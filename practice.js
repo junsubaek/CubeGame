@@ -292,15 +292,11 @@ import { SHUFFLE_BTN, START_BTN, RESET_BTN } from "./button.js";
   const shuffleCube = (count) => {
     const shuffleCaseArray = [
       rotateTopLeft,
-      rotateTopRight,
       rotateBottomLeft,
-      rotateBottomRight,
       rotateLeftUp,
-      rotateLeftDown,
       rotateRightUp,
-      rotateRightDown,
-      rotateDownAll,
-      rotateLeftAll,
+      rotateCenterDown,
+      rotateMiddleRight,
     ];
 
     for (let i = 0; i < count; i++) {
@@ -314,8 +310,8 @@ import { SHUFFLE_BTN, START_BTN, RESET_BTN } from "./button.js";
   const startGame = () => {
     const regexp = /^[0-9]*$/;
     const count = prompt("몇 회 섞으시겠습니까?(Ex: 3)");
-    if (!regexp.test(count)) {
-      alert("숫자를 입력해주세요");
+    if (Number(count) === 0 || !regexp.test(Number(count))) {
+      alert("0을 제외한 숫자를 입력해주세요");
       startGame();
       return;
     }
