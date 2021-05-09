@@ -256,7 +256,7 @@ import { SHUFFLE_BTN, START_BTN, RESET_BTN } from "./button.js";
       }
     }
     if (wholeCount === 6) {
-      alert("정답");
+      alert(`정답입니다.`);
       cube.classList.add("cube-LeftRight");
       cube.innerHTML = cubeTopMiddleBottomHTML;
       resetGame();
@@ -289,24 +289,22 @@ import { SHUFFLE_BTN, START_BTN, RESET_BTN } from "./button.js";
     }, 1000);
   };
 
-  const shuffleCube = () => {
+  const shuffleCube = (count) => {
     const shuffleCaseArray = [
       rotateTopLeft,
       rotateTopRight,
       rotateBottomLeft,
       rotateBottomRight,
-      rotateLeftAll,
-      rotateRightAll,
       rotateLeftUp,
       rotateLeftDown,
       rotateRightUp,
       rotateRightDown,
-      rotateUpAll,
       rotateDownAll,
+      rotateLeftAll,
     ];
 
-    for (let i = 0; i < 10; i++) {
-      const randomNumber = Math.floor(Math.random() * 12);
+    for (let i = 0; i < count; i++) {
+      const randomNumber = Math.floor(Math.random() * shuffleCaseArray.length);
       shuffleCaseArray[randomNumber]();
     }
     drawCube(false, cubeArr);
@@ -314,8 +312,15 @@ import { SHUFFLE_BTN, START_BTN, RESET_BTN } from "./button.js";
   };
 
   const startGame = () => {
+    const regexp = /^[0-9]*$/;
+    const count = prompt("몇 회 섞으시겠습니까?(Ex: 3)");
+    if (!regexp.test(count)) {
+      alert("숫자를 입력해주세요");
+      startGame();
+      return;
+    }
     removeGameAnimation();
-    shuffleCube();
+    shuffleCube(count);
     drawScreen();
     timeStop = false;
     start = true;
