@@ -51,6 +51,7 @@ import { SHUFFLE_BTN, START_BTN, RESET_BTN } from "./button.js";
     START_BTN: document.querySelector(".start"),
     RESET_BTN: document.querySelector(".reset"),
   };
+
   const timer = document.querySelector(".timer");
   const directionObj = {
     CUBE_TOP_RIGHT: {
@@ -103,13 +104,13 @@ import { SHUFFLE_BTN, START_BTN, RESET_BTN } from "./button.js";
     },
   };
 
-  const color = {
-    KHAKI: 0,
-    NAVY: 1,
-    IVORY: 2,
-    RED: 3,
-    BLACK: 4,
-    PINK: 5,
+  const direction = {
+    FRONT: 0,
+    RIGHT: 1,
+    BACK: 2,
+    LEFT: 3,
+    BOTTOM: 4,
+    TOP: 5,
   };
 
   const countObj = {
@@ -219,17 +220,17 @@ import { SHUFFLE_BTN, START_BTN, RESET_BTN } from "./button.js";
     for (let i = 0; i < 3; i++) {
       for (let j = 0; j < 3; j++) {
         screen.FRONT[miniScreen].style.backgroundColor =
-          cubeArr[color.KHAKI][i][j];
+          cubeArr[direction.FRONT][i][j];
         screen.BACK[miniScreen].style.backgroundColor =
-          cubeArr[color.IVORY][2 - i][j];
+          cubeArr[direction.BACK][2 - i][j];
         screen.LEFT[miniScreen].style.backgroundColor =
-          cubeArr[color.RED][i][j];
+          cubeArr[direction.LEFT][i][j];
         screen.RIGHT[miniScreen].style.backgroundColor =
-          cubeArr[color.NAVY][i][2 - j];
+          cubeArr[direction.RIGHT][i][2 - j];
         screen.TOP[miniScreen].style.backgroundColor =
-          cubeArr[color.PINK][i][j];
+          cubeArr[direction.TOP][i][j];
         screen.BOTTOM[miniScreen].style.backgroundColor =
-          cubeArr[color.BLACK][2 - i][j];
+          cubeArr[direction.BOTTOM][2 - i][j];
         miniScreen++;
       }
     }
@@ -467,7 +468,7 @@ import { SHUFFLE_BTN, START_BTN, RESET_BTN } from "./button.js";
       cubeArr[3][0][i] = tempArr2[i];
     }
 
-    rotateRight(color.PINK);
+    rotateRight(direction.TOP);
   };
 
   const rotateTopRight = () => {
@@ -489,7 +490,7 @@ import { SHUFFLE_BTN, START_BTN, RESET_BTN } from "./button.js";
       cubeArr[3][0][i] = tempArr2[2 - i];
     }
 
-    rotateLeft(color.PINK);
+    rotateLeft(direction.TOP);
   };
 
   const rotateMiddleLeft = () => {
@@ -551,7 +552,7 @@ import { SHUFFLE_BTN, START_BTN, RESET_BTN } from "./button.js";
       cubeArr[3][2][i] = tempArr2[i];
     }
 
-    rotateRight(color.BLACK);
+    rotateRight(direction.BOTTOM);
   };
 
   const rotateBottomRight = () => {
@@ -573,7 +574,7 @@ import { SHUFFLE_BTN, START_BTN, RESET_BTN } from "./button.js";
       cubeArr[3][2][i] = tempArr2[2 - i];
     }
 
-    rotateLeft(color.BLACK);
+    rotateLeft(direction.BOTTOM);
   };
 
   const rotateLeftAll = () => {
@@ -603,8 +604,8 @@ import { SHUFFLE_BTN, START_BTN, RESET_BTN } from "./button.js";
       }
     }
 
-    rotateRight(color.PINK);
-    rotateRight(color.BLACK);
+    rotateRight(direction.TOP);
+    rotateRight(direction.BOTTOM);
   };
 
   const rotateRightAll = () => {
@@ -634,8 +635,8 @@ import { SHUFFLE_BTN, START_BTN, RESET_BTN } from "./button.js";
       }
     }
 
-    rotateLeft(color.PINK);
-    rotateLeft(color.BLACK);
+    rotateLeft(direction.TOP);
+    rotateLeft(direction.BOTTOM);
   };
 
   const rotateLeftUp = () => {
@@ -657,7 +658,7 @@ import { SHUFFLE_BTN, START_BTN, RESET_BTN } from "./button.js";
       cubeArr[5][i][0] = tempArr2[i];
     }
 
-    rotateUp(color.RED);
+    rotateUp(direction.LEFT);
   };
 
   const rotateLeftDown = () => {
@@ -678,7 +679,7 @@ import { SHUFFLE_BTN, START_BTN, RESET_BTN } from "./button.js";
       cubeArr[5][i][0] = tempArr[2 - i];
       cubeArr[4][i][0] = tempArr2[2 - i];
     }
-    rotateDown(color.RED);
+    rotateDown(direction.LEFT);
   };
 
   const rotateCenterUp = () => {
@@ -740,7 +741,7 @@ import { SHUFFLE_BTN, START_BTN, RESET_BTN } from "./button.js";
       cubeArr[5][i][2] = tempArr2[i];
     }
 
-    rotateUp(color.NAVY);
+    rotateUp(direction.RIGHT);
   };
 
   const rotateRightDown = () => {
@@ -762,7 +763,7 @@ import { SHUFFLE_BTN, START_BTN, RESET_BTN } from "./button.js";
       cubeArr[4][i][2] = tempArr2[2 - i];
     }
 
-    rotateDown(color.NAVY);
+    rotateDown(direction.RIGHT);
   };
 
   const rotateUpAll = () => {
@@ -792,8 +793,8 @@ import { SHUFFLE_BTN, START_BTN, RESET_BTN } from "./button.js";
       }
     }
 
-    rotateUp(color.NAVY);
-    rotateUp(color.RED);
+    rotateUp(direction.RIGHT);
+    rotateUp(direction.LEFT);
   };
 
   const rotateDownAll = () => {
@@ -823,8 +824,8 @@ import { SHUFFLE_BTN, START_BTN, RESET_BTN } from "./button.js";
       }
     }
 
-    rotateDown(color.NAVY);
-    rotateDown(color.RED);
+    rotateDown(direction.RIGHT);
+    rotateDown(direction.LEFT);
   };
 
   const savePrevCubeArr = () => {
@@ -861,7 +862,13 @@ import { SHUFFLE_BTN, START_BTN, RESET_BTN } from "./button.js";
 
       if (i <= 3 || (10 <= i && i <= 12) || (19 <= i && i <= 21)) {
         const back = smallCube.querySelector(".back");
-        changeBackgroundColor(selectedCube, back, color.IVORY, BACK_I, BACK_J);
+        changeBackgroundColor(
+          selectedCube,
+          back,
+          direction.BACK,
+          BACK_I,
+          BACK_J
+        );
       }
 
       if ((7 <= i && i <= 9) || (16 <= i && i <= 18) || (25 <= i && i <= 27)) {
@@ -869,7 +876,7 @@ import { SHUFFLE_BTN, START_BTN, RESET_BTN } from "./button.js";
         changeBackgroundColor(
           selectedCube,
           front,
-          color.KHAKI,
+          direction.FRONT,
           FRONT_I,
           FRONT_J
         );
@@ -877,7 +884,7 @@ import { SHUFFLE_BTN, START_BTN, RESET_BTN } from "./button.js";
 
       if (i <= 9) {
         const top = smallCube.querySelector(".top");
-        changeBackgroundColor(selectedCube, top, color.PINK, TOP_I, TOP_J);
+        changeBackgroundColor(selectedCube, top, direction.TOP, TOP_I, TOP_J);
       }
 
       if (i >= 19) {
@@ -885,7 +892,7 @@ import { SHUFFLE_BTN, START_BTN, RESET_BTN } from "./button.js";
         changeBackgroundColor(
           selectedCube,
           bottom,
-          color.BLACK,
+          direction.BOTTOM,
           BOTTOM_I,
           BOTTOM_J
         );
@@ -893,7 +900,13 @@ import { SHUFFLE_BTN, START_BTN, RESET_BTN } from "./button.js";
 
       if (i % 3 === 1) {
         const left = smallCube.querySelector(".left");
-        changeBackgroundColor(selectedCube, left, color.RED, LEFT_I, LEFT_J);
+        changeBackgroundColor(
+          selectedCube,
+          left,
+          direction.LEFT,
+          LEFT_I,
+          LEFT_J
+        );
       }
 
       if (i % 3 === 0) {
@@ -901,7 +914,7 @@ import { SHUFFLE_BTN, START_BTN, RESET_BTN } from "./button.js";
         changeBackgroundColor(
           selectedCube,
           right,
-          color.NAVY,
+          direction.RIGHT,
           RIGHT_I,
           RIGHT_J
         );
@@ -1081,17 +1094,33 @@ import { SHUFFLE_BTN, START_BTN, RESET_BTN } from "./button.js";
     });
   };
 
+  const selectNewLeftRightDOM = () => {
+    const cubeTop = document.querySelector(".cube-top");
+    const cubeMiddle = document.querySelector(".cube-middle");
+    const cubeBottom = document.querySelector(".cube-bottom");
+
+    return { cubeTop, cubeMiddle, cubeBottom };
+  };
+
+  const selectNewUpDownDOM = () => {
+    const cubeLeft = document.querySelector(".cube-left");
+    const cubeCenter = document.querySelector(".cube-center");
+    const cubeRight = document.querySelector(".cube-right");
+
+    return { cubeLeft, cubeCenter, cubeRight };
+  };
+
   const rotateHorizontal = (direction) => {
     switch (direction) {
       case TOP_RIGHT:
         if (cube.classList.contains("cube-UpDown")) {
           changeCubeUpDown();
           drawCube(prevCubeArr);
-          const cubeTop = document.querySelector(".cube-top");
-          rotateCubePieces(cubeTop, Y, PLUS_90, cubeTopMiddleBottomHTML);
+          const newDOM = selectNewLeftRightDOM();
+          rotateCubePieces(newDOM.cubeTop, Y, PLUS_90, cubeTopMiddleBottomHTML);
         } else {
-          const cubeTop = document.querySelector(".cube-top");
-          rotateCubePieces(cubeTop, Y, PLUS_90, cubeTopMiddleBottomHTML);
+          const newDOM = selectNewLeftRightDOM();
+          rotateCubePieces(newDOM.cubeTop, Y, PLUS_90, cubeTopMiddleBottomHTML);
         }
         break;
 
@@ -1099,11 +1128,21 @@ import { SHUFFLE_BTN, START_BTN, RESET_BTN } from "./button.js";
         if (cube.classList.contains("cube-UpDown")) {
           changeCubeUpDown();
           drawCube(prevCubeArr);
-          const cubeMiddle = document.querySelector(".cube-middle");
-          rotateCubePieces(cubeMiddle, Y, PLUS_90, cubeTopMiddleBottomHTML);
+          const newDOM = selectNewLeftRightDOM();
+          rotateCubePieces(
+            newDOM.cubeMiddle,
+            Y,
+            PLUS_90,
+            cubeTopMiddleBottomHTML
+          );
         } else {
-          const cubeMiddle = document.querySelector(".cube-middle");
-          rotateCubePieces(cubeMiddle, Y, PLUS_90, cubeTopMiddleBottomHTML);
+          const newDOM = selectNewLeftRightDOM();
+          rotateCubePieces(
+            newDOM.cubeMiddle,
+            Y,
+            PLUS_90,
+            cubeTopMiddleBottomHTML
+          );
         }
         break;
 
@@ -1111,11 +1150,21 @@ import { SHUFFLE_BTN, START_BTN, RESET_BTN } from "./button.js";
         if (cube.classList.contains("cube-UpDown")) {
           changeCubeUpDown();
           drawCube(prevCubeArr);
-          const cubeBottom = document.querySelector(".cube-bottom");
-          rotateCubePieces(cubeBottom, Y, PLUS_90, cubeTopMiddleBottomHTML);
+          const newDOM = selectNewLeftRightDOM();
+          rotateCubePieces(
+            newDOM.cubeBottom,
+            Y,
+            PLUS_90,
+            cubeTopMiddleBottomHTML
+          );
         } else {
-          const cubeBottom = document.querySelector(".cube-bottom");
-          rotateCubePieces(cubeBottom, Y, PLUS_90, cubeTopMiddleBottomHTML);
+          const newDOM = selectNewLeftRightDOM();
+          rotateCubePieces(
+            newDOM.cubeBottom,
+            Y,
+            PLUS_90,
+            cubeTopMiddleBottomHTML
+          );
         }
         break;
 
@@ -1123,11 +1172,21 @@ import { SHUFFLE_BTN, START_BTN, RESET_BTN } from "./button.js";
         if (cube.classList.contains("cube-UpDown")) {
           changeCubeUpDown();
           drawCube(prevCubeArr);
-          const cubeTop = document.querySelector(".cube-top");
-          rotateCubePieces(cubeTop, Y, MINUS_90, cubeTopMiddleBottomHTML);
+          const newDOM = selectNewLeftRightDOM();
+          rotateCubePieces(
+            newDOM.cubeTop,
+            Y,
+            MINUS_90,
+            cubeTopMiddleBottomHTML
+          );
         } else {
-          const cubeTop = document.querySelector(".cube-top");
-          rotateCubePieces(cubeTop, Y, MINUS_90, cubeTopMiddleBottomHTML);
+          const newDOM = selectNewLeftRightDOM();
+          rotateCubePieces(
+            newDOM.cubeTop,
+            Y,
+            MINUS_90,
+            cubeTopMiddleBottomHTML
+          );
         }
         break;
 
@@ -1135,11 +1194,21 @@ import { SHUFFLE_BTN, START_BTN, RESET_BTN } from "./button.js";
         if (cube.classList.contains("cube-UpDown")) {
           changeCubeUpDown();
           drawCube(prevCubeArr);
-          const cubeMiddle = document.querySelector(".cube-middle");
-          rotateCubePieces(cubeMiddle, Y, MINUS_90, cubeTopMiddleBottomHTML);
+          const newDOM = selectNewLeftRightDOM();
+          rotateCubePieces(
+            newDOM.cubeMiddle,
+            Y,
+            MINUS_90,
+            cubeTopMiddleBottomHTML
+          );
         } else {
-          const cubeMiddle = document.querySelector(".cube-middle");
-          rotateCubePieces(cubeMiddle, Y, MINUS_90, cubeTopMiddleBottomHTML);
+          const newDOM = selectNewLeftRightDOM();
+          rotateCubePieces(
+            newDOM.cubeMiddle,
+            Y,
+            MINUS_90,
+            cubeTopMiddleBottomHTML
+          );
         }
         break;
 
@@ -1147,11 +1216,21 @@ import { SHUFFLE_BTN, START_BTN, RESET_BTN } from "./button.js";
         if (cube.classList.contains("cube-UpDown")) {
           changeCubeUpDown();
           drawCube(prevCubeArr);
-          const cubeBottom = document.querySelector(".cube-bottom");
-          rotateCubePieces(cubeBottom, Y, MINUS_90, cubeTopMiddleBottomHTML);
+          const newDOM = selectNewLeftRightDOM();
+          rotateCubePieces(
+            newDOM.cubeBottom,
+            Y,
+            MINUS_90,
+            cubeTopMiddleBottomHTML
+          );
         } else {
-          const cubeBottom = document.querySelector(".cube-bottom");
-          rotateCubePieces(cubeBottom, Y, MINUS_90, cubeTopMiddleBottomHTML);
+          const newDOM = selectNewLeftRightDOM();
+          rotateCubePieces(
+            newDOM.cubeBottom,
+            Y,
+            MINUS_90,
+            cubeTopMiddleBottomHTML
+          );
         }
         break;
 
@@ -1159,25 +1238,21 @@ import { SHUFFLE_BTN, START_BTN, RESET_BTN } from "./button.js";
         if (cube.classList.contains("cube-UpDown")) {
           changeCubeUpDown();
           drawCube(prevCubeArr);
-          const cubeTop = document.querySelector(".cube-top");
-          const cubeMiddle = document.querySelector(".cube-middle");
-          const cubeBottom = document.querySelector(".cube-bottom");
+          const newDOM = selectNewLeftRightDOM();
           rotateWholeCube(
-            cubeTop,
-            cubeMiddle,
-            cubeBottom,
+            newDOM.cubeTop,
+            newDOM.cubeMiddle,
+            newDOM.cubeBottom,
             Y,
             PLUS_90,
             cubeTopMiddleBottomHTML
           );
         } else {
-          const cubeTop = document.querySelector(".cube-top");
-          const cubeMiddle = document.querySelector(".cube-middle");
-          const cubeBottom = document.querySelector(".cube-bottom");
+          const newDOM = selectNewLeftRightDOM();
           rotateWholeCube(
-            cubeTop,
-            cubeMiddle,
-            cubeBottom,
+            newDOM.cubeTop,
+            newDOM.cubeMiddle,
+            newDOM.cubeBottom,
             Y,
             PLUS_90,
             cubeTopMiddleBottomHTML
@@ -1189,25 +1264,21 @@ import { SHUFFLE_BTN, START_BTN, RESET_BTN } from "./button.js";
         if (cube.classList.contains("cube-UpDown")) {
           changeCubeUpDown();
           drawCube(prevCubeArr);
-          const cubeTop = document.querySelector(".cube-top");
-          const cubeMiddle = document.querySelector(".cube-middle");
-          const cubeBottom = document.querySelector(".cube-bottom");
+          const newDOM = selectNewLeftRightDOM();
           rotateWholeCube(
-            cubeTop,
-            cubeMiddle,
-            cubeBottom,
+            newDOM.cubeTop,
+            newDOM.cubeMiddle,
+            newDOM.cubeBottom,
             Y,
             MINUS_90,
             cubeTopMiddleBottomHTML
           );
         } else {
-          const cubeTop = document.querySelector(".cube-top");
-          const cubeMiddle = document.querySelector(".cube-middle");
-          const cubeBottom = document.querySelector(".cube-bottom");
+          const newDOM = selectNewLeftRightDOM();
           rotateWholeCube(
-            cubeTop,
-            cubeMiddle,
-            cubeBottom,
+            newDOM.cubeTop,
+            newDOM.cubeMiddle,
+            newDOM.cubeBottom,
             Y,
             MINUS_90,
             cubeTopMiddleBottomHTML
@@ -1226,11 +1297,21 @@ import { SHUFFLE_BTN, START_BTN, RESET_BTN } from "./button.js";
         if (cube.classList.contains("cube-LeftRight")) {
           changeCubeLeftRight();
           drawCube(prevCubeArr);
-          const cubeLeft = document.querySelector(".cube-left");
-          rotateCubePieces(cubeLeft, X, PLUS_90, cubeLeftCenterRightHTML);
+          const newDOM = selectNewUpDownDOM();
+          rotateCubePieces(
+            newDOM.cubeLeft,
+            X,
+            PLUS_90,
+            cubeLeftCenterRightHTML
+          );
         } else {
-          const cubeLeft = document.querySelector(".cube-left");
-          rotateCubePieces(cubeLeft, X, PLUS_90, cubeLeftCenterRightHTML);
+          const newDOM = selectNewUpDownDOM();
+          rotateCubePieces(
+            newDOM.cubeLeft,
+            X,
+            PLUS_90,
+            cubeLeftCenterRightHTML
+          );
         }
 
         break;
@@ -1239,11 +1320,21 @@ import { SHUFFLE_BTN, START_BTN, RESET_BTN } from "./button.js";
         if (cube.classList.contains("cube-LeftRight")) {
           changeCubeLeftRight();
           drawCube(prevCubeArr);
-          const cubeCenter = document.querySelector(".cube-center");
-          rotateCubePieces(cubeCenter, X, PLUS_90, cubeLeftCenterRightHTML);
+          const newDOM = selectNewUpDownDOM();
+          rotateCubePieces(
+            newDOM.cubeCenter,
+            X,
+            PLUS_90,
+            cubeLeftCenterRightHTML
+          );
         } else {
-          const cubeCenter = document.querySelector(".cube-center");
-          rotateCubePieces(cubeCenter, X, PLUS_90, cubeLeftCenterRightHTML);
+          const newDOM = selectNewUpDownDOM();
+          rotateCubePieces(
+            newDOM.cubeCenter,
+            X,
+            PLUS_90,
+            cubeLeftCenterRightHTML
+          );
         }
         break;
 
@@ -1251,37 +1342,17 @@ import { SHUFFLE_BTN, START_BTN, RESET_BTN } from "./button.js";
         if (cube.classList.contains("cube-LeftRight")) {
           changeCubeLeftRight();
           drawCube(prevCubeArr);
-          const cubeRight = document.querySelector(".cube-right");
-          rotateCubePieces(cubeRight, X, PLUS_90, cubeLeftCenterRightHTML);
-        } else {
-          const cubeRight = document.querySelector(".cube-right");
-          rotateCubePieces(cubeRight, X, PLUS_90, cubeLeftCenterRightHTML);
-        }
-        break;
-
-      case UP_ALL:
-        if (cube.classList.contains("cube-LeftRight")) {
-          changeCubeLeftRight();
-          drawCube(prevCubeArr);
-          const cubeLeft = document.querySelector(".cube-left");
-          const cubeCenter = document.querySelector(".cube-center");
-          const cubeRight = document.querySelector(".cube-right");
-          rotateWholeCube(
-            cubeLeft,
-            cubeCenter,
-            cubeRight,
+          const newDOM = selectNewUpDownDOM();
+          rotateCubePieces(
+            newDOM.cubeRight,
             X,
             PLUS_90,
             cubeLeftCenterRightHTML
           );
         } else {
-          const cubeLeft = document.querySelector(".cube-left");
-          const cubeCenter = document.querySelector(".cube-center");
-          const cubeRight = document.querySelector(".cube-right");
-          rotateWholeCube(
-            cubeLeft,
-            cubeCenter,
-            cubeRight,
+          const newDOM = selectNewUpDownDOM();
+          rotateCubePieces(
+            newDOM.cubeRight,
             X,
             PLUS_90,
             cubeLeftCenterRightHTML
@@ -1293,11 +1364,21 @@ import { SHUFFLE_BTN, START_BTN, RESET_BTN } from "./button.js";
         if (cube.classList.contains("cube-LeftRight")) {
           changeCubeLeftRight();
           drawCube(prevCubeArr);
-          const cubeLeft = document.querySelector(".cube-left");
-          rotateCubePieces(cubeLeft, X, MINUS_90, cubeLeftCenterRightHTML);
+          const newDOM = selectNewUpDownDOM();
+          rotateCubePieces(
+            newDOM.cubeLeft,
+            X,
+            MINUS_90,
+            cubeLeftCenterRightHTML
+          );
         } else {
-          const cubeLeft = document.querySelector(".cube-left");
-          rotateCubePieces(cubeLeft, X, MINUS_90, cubeLeftCenterRightHTML);
+          const newDOM = selectNewUpDownDOM();
+          rotateCubePieces(
+            newDOM.cubeLeft,
+            X,
+            MINUS_90,
+            cubeLeftCenterRightHTML
+          );
         }
         break;
 
@@ -1305,11 +1386,21 @@ import { SHUFFLE_BTN, START_BTN, RESET_BTN } from "./button.js";
         if (cube.classList.contains("cube-LeftRight")) {
           changeCubeLeftRight();
           drawCube(prevCubeArr);
-          const cubeCenter = document.querySelector(".cube-center");
-          rotateCubePieces(cubeCenter, X, MINUS_90, cubeLeftCenterRightHTML);
+          const newDOM = selectNewUpDownDOM();
+          rotateCubePieces(
+            newDOM.cubeCenter,
+            X,
+            MINUS_90,
+            cubeLeftCenterRightHTML
+          );
         } else {
-          const cubeCenter = document.querySelector(".cube-center");
-          rotateCubePieces(cubeCenter, X, MINUS_90, cubeLeftCenterRightHTML);
+          const newDOM = selectNewUpDownDOM();
+          rotateCubePieces(
+            newDOM.cubeCenter,
+            X,
+            MINUS_90,
+            cubeLeftCenterRightHTML
+          );
         }
         break;
 
@@ -1317,11 +1408,47 @@ import { SHUFFLE_BTN, START_BTN, RESET_BTN } from "./button.js";
         if (cube.classList.contains("cube-LeftRight")) {
           changeCubeLeftRight();
           drawCube(prevCubeArr);
-          const cubeRight = document.querySelector(".cube-right");
-          rotateCubePieces(cubeRight, X, MINUS_90, cubeLeftCenterRightHTML);
+          const newDOM = selectNewUpDownDOM();
+          rotateCubePieces(
+            newDOM.cubeRight,
+            X,
+            MINUS_90,
+            cubeLeftCenterRightHTML
+          );
         } else {
-          const cubeRight = document.querySelector(".cube-right");
-          rotateCubePieces(cubeRight, X, MINUS_90, cubeLeftCenterRightHTML);
+          const newDOM = selectNewUpDownDOM();
+          rotateCubePieces(
+            newDOM.cubeRight,
+            X,
+            MINUS_90,
+            cubeLeftCenterRightHTML
+          );
+        }
+        break;
+
+      case UP_ALL:
+        if (cube.classList.contains("cube-LeftRight")) {
+          changeCubeLeftRight();
+          drawCube(prevCubeArr);
+          const newDOM = selectNewUpDownDOM();
+          rotateWholeCube(
+            newDOM.cubeLeft,
+            newDOM.cubeCenter,
+            newDOM.cubeRight,
+            X,
+            PLUS_90,
+            cubeLeftCenterRightHTML
+          );
+        } else {
+          const newDOM = selectNewUpDownDOM();
+          rotateWholeCube(
+            newDOM.cubeLeft,
+            newDOM.cubeCenter,
+            newDOM.cubeRight,
+            X,
+            PLUS_90,
+            cubeLeftCenterRightHTML
+          );
         }
         break;
 
@@ -1329,25 +1456,21 @@ import { SHUFFLE_BTN, START_BTN, RESET_BTN } from "./button.js";
         if (cube.classList.contains("cube-LeftRight")) {
           changeCubeLeftRight();
           drawCube(prevCubeArr);
-          const cubeLeft = document.querySelector(".cube-left");
-          const cubeCenter = document.querySelector(".cube-center");
-          const cubeRight = document.querySelector(".cube-right");
+          const newDOM = selectNewUpDownDOM();
           rotateWholeCube(
-            cubeLeft,
-            cubeCenter,
-            cubeRight,
+            newDOM.cubeLeft,
+            newDOM.cubeCenter,
+            newDOM.cubeRight,
             X,
             MINUS_90,
             cubeLeftCenterRightHTML
           );
         } else {
-          const cubeLeft = document.querySelector(".cube-left");
-          const cubeCenter = document.querySelector(".cube-center");
-          const cubeRight = document.querySelector(".cube-right");
+          const newDOM = selectNewUpDownDOM();
           rotateWholeCube(
-            cubeLeft,
-            cubeCenter,
-            cubeRight,
+            newDOM.cubeLeft,
+            newDOM.cubeCenter,
+            newDOM.cubeRight,
             X,
             MINUS_90,
             cubeLeftCenterRightHTML
