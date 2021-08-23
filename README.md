@@ -1,7 +1,6 @@
 # CubeGame https://junsubaek.github.io/CubeGame/
 
 1. 버튼 설명<br/>
-SHUFFLE : 시간초를 재지 않고 섞습니다.<br/>
 START : 큐브를 섞음과 동시에 시간초를 잽니다. 정답을 맞출 시 자동으로 리셋 됩니다.<br/>
 RESET : 큐브를 강제로 원상복귀 시킵니다.<br/>
 2. 큐브는 기본 10번 섞어집니다.
