@@ -1,363 +1,411 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./practice.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./practice.css" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="play-cube">
-        <h2 class="title">Play Cube</h2>
-        <div class="container-cube">
+      <h2 class="title">Play Cube</h2>
+      <div class="container-cube">
         <div class="move move-up-all">
-            <i class="far fa-arrow-alt-circle-up fa-2x up-all" data-direction="up-all"></i>
+          <i
+            class="far fa-arrow-alt-circle-up fa-2x up-all"
+            data-direction="up-all"
+          ></i>
         </div>
         <div class="move move-up">
-            <i class="fas fa-arrow-alt-circle-up fa-2x left-up" data-direction="left-up"></i>
-            <i class="fas fa-arrow-alt-circle-up fa-2x center-up" data-direction="center-up"></i>
-            <i class="fas fa-arrow-alt-circle-up fa-2x right-up" data-direction="right-up"></i>
+          <i
+            class="fas fa-arrow-alt-circle-up fa-2x left-up"
+            data-direction="left-up"
+          ></i>
+          <i
+            class="fas fa-arrow-alt-circle-up fa-2x center-up"
+            data-direction="center-up"
+          ></i>
+          <i
+            class="fas fa-arrow-alt-circle-up fa-2x right-up"
+            data-direction="right-up"
+          ></i>
         </div>
 
         <div class="move move-left-all">
-            <i class="far fa-arrow-alt-circle-left fa-2x left-all" data-direction="left-all"></i>
+          <i
+            class="far fa-arrow-alt-circle-left fa-2x left-all"
+            data-direction="left-all"
+          ></i>
         </div>
         <div class="move move-left">
-            <i class="fas fa-arrow-alt-circle-left fa-2x top-left" data-direction="top-left"></i>
-            <i class="fas fa-arrow-alt-circle-left fa-2x middle-left" data-direction="middle-left"></i>
-            <i class="fas fa-arrow-alt-circle-left fa-2x bottom-left" data-direction="bottom-left"></i>
+          <i
+            class="fas fa-arrow-alt-circle-left fa-2x top-left"
+            data-direction="top-left"
+          ></i>
+          <i
+            class="fas fa-arrow-alt-circle-left fa-2x middle-left"
+            data-direction="middle-left"
+          ></i>
+          <i
+            class="fas fa-arrow-alt-circle-left fa-2x bottom-left"
+            data-direction="bottom-left"
+          ></i>
         </div>
-        <div id='cube' class="cube-LeftRight">
-            <div class="cube-top">
-                <div class="small-cube" id="small-cube-1">
-                    <div class="front wall"></div>
-                    <div class="back wall"></div>
-                    <div class="top wall"></div>    
-                    <div class="bottom wall"></div>
-                    <div class="left wall"></div>
-                    <div class="right wall"></div>
-                </div>
-                <div class="small-cube" id="small-cube-2">
-                    <div class="front wall"></div>
-                    <div class="back wall"></div>
-                    <div class="top wall"></div>    
-                    <div class="bottom wall"></div>
-                    <div class="left wall"></div>
-                    <div class="right wall"></div>
-                </div>
-                <div class="small-cube" id="small-cube-3">
-                    <div class="front wall"></div>
-                    <div class="back wall"></div>
-                    <div class="top wall"></div>    
-                    <div class="bottom wall"></div>
-                    <div class="left wall"></div>
-                    <div class="right wall"></div>
-                </div>
-                <div class="small-cube" id="small-cube-4">
-                    <div class="front wall"></div>
-                    <div class="back wall"></div>
-                    <div class="top wall"></div>    
-                    <div class="bottom wall"></div>
-                    <div class="left wall"></div>
-                    <div class="right wall"></div>
-                </div>
-                <div class="small-cube" id="small-cube-5">
-                    <div class="front wall"></div>
-                    <div class="back wall"></div>
-                    <div class="top wall"></div>    
-                    <div class="bottom wall"></div>
-                    <div class="left wall"></div>
-                    <div class="right wall"></div>
-                </div>
-                <div class="small-cube" id="small-cube-6">
-                    <div class="front wall"></div>
-                    <div class="back wall"></div>
-                    <div class="top wall"></div>    
-                    <div class="bottom wall"></div>
-                    <div class="left wall"></div>
-                    <div class="right wall"></div>
-                </div>
-                <div class="small-cube" id="small-cube-7">
-                    <div class="front wall"></div>
-                    <div class="back wall"></div>
-                    <div class="top wall"></div>    
-                    <div class="bottom wall"></div>
-                    <div class="left wall"></div>
-                    <div class="right wall"></div>
-                </div>
-                 <div class="small-cube" id="small-cube-8">
-                    <div class="front wall"></div>
-                    <div class="back wall"></div>
-                    <div class="top wall"></div>    
-                    <div class="bottom wall"></div>
-                    <div class="left wall"></div>
-                    <div class="right wall"></div>
-                </div>
-                <div class="small-cube" id="small-cube-9">
-                    <div class="front wall"></div>
-                    <div class="back wall"></div>
-                    <div class="top wall"></div>    
-                    <div class="bottom wall"></div>
-                    <div class="left wall"></div>
-                    <div class="right wall"></div>
-                </div>
+        <div id="cube" class="cube-LeftRight">
+          <div class="cube-top">
+            <div class="small-cube" id="small-cube-1">
+              <div class="front wall"></div>
+              <div class="back wall"></div>
+              <div class="top wall"></div>
+              <div class="bottom wall"></div>
+              <div class="left wall"></div>
+              <div class="right wall"></div>
             </div>
-            <div class="cube-middle">
-                <div class="small-cube" id="small-cube-10">
-                    <div class="front wall"></div>
-                    <div class="back wall"></div>
-                    <div class="top wall"></div>    
-                    <div class="bottom wall"></div>
-                    <div class="left wall"></div>
-                    <div class="right wall"></div>
-                </div>
-                <div class="small-cube" id="small-cube-11">
-                    <div class="front wall"></div>
-                    <div class="back wall"></div>
-                    <div class="top wall"></div>    
-                    <div class="bottom wall"></div>
-                    <div class="left wall"></div>
-                    <div class="right wall"></div>
-                </div>
-                <div class="small-cube" id="small-cube-12">
-                    <div class="front wall"></div>
-                    <div class="back wall"></div>
-                    <div class="top wall"></div>    
-                    <div class="bottom wall"></div>
-                    <div class="left wall"></div>
-                    <div class="right wall"></div>
-                </div>
-                <div class="small-cube" id="small-cube-13">
-                    <div class="front wall"></div>
-                    <div class="back wall"></div>
-                    <div class="top wall"></div>    
-                    <div class="bottom wall"></div>
-                    <div class="left wall"></div>
-                    <div class="right wall"></div>
-                </div>
-                <div class="small-cube" id="small-cube-14">
-                    <div class="front wall"></div>
-                    <div class="back wall"></div>
-                    <div class="top wall"></div>    
-                    <div class="bottom wall"></div>
-                    <div class="left wall"></div>
-                    <div class="right wall"></div>
-                </div>
-                <div class="small-cube" id="small-cube-15">
-                    <div class="front wall"></div>
-                    <div class="back wall"></div>
-                    <div class="top wall"></div>    
-                    <div class="bottom wall"></div>
-                    <div class="left wall"></div>
-                    <div class="right wall"></div>
-                </div>
-                <div class="small-cube" id="small-cube-16">
-                    <div class="front wall"></div>
-                    <div class="back wall"></div>
-                    <div class="top wall"></div>    
-                    <div class="bottom wall"></div>
-                    <div class="left wall"></div>
-                    <div class="right wall"></div>
-                </div>
-                <div class="small-cube" id="small-cube-17">
-                    <div class="front wall"></div>
-                    <div class="back wall"></div>
-                    <div class="top wall"></div>    
-                    <div class="bottom wall"></div>
-                    <div class="left wall"></div>
-                    <div class="right wall"></div>
-                </div>
-                <div class="small-cube" id="small-cube-18">
-                    <div class="front wall"></div>
-                    <div class="back wall"></div>
-                    <div class="top wall"></div>    
-                    <div class="bottom wall"></div>
-                    <div class="left wall"></div>
-                    <div class="right wall"></div>
-                </div>
+            <div class="small-cube" id="small-cube-2">
+              <div class="front wall"></div>
+              <div class="back wall"></div>
+              <div class="top wall"></div>
+              <div class="bottom wall"></div>
+              <div class="left wall"></div>
+              <div class="right wall"></div>
             </div>
-            <div class="cube-bottom">
-                <div class="small-cube" id="small-cube-19">
-                    <div class="front wall"></div>
-                    <div class="back wall"></div>
-                    <div class="top wall"></div>    
-                    <div class="bottom wall"></div>
-                    <div class="left wall"></div>
-                    <div class="right wall"></div>
-                </div>
-                <div class="small-cube" id="small-cube-20">
-                    <div class="front wall"></div>
-                    <div class="back wall"></div>
-                    <div class="top wall"></div>    
-                    <div class="bottom wall"></div>
-                    <div class="left wall"></div>
-                    <div class="right wall"></div>
-                </div>
-                <div class="small-cube" id="small-cube-21">
-                    <div class="front wall"></div>
-                    <div class="back wall"></div>
-                    <div class="top wall"></div>    
-                    <div class="bottom wall"></div>
-                    <div class="left wall"></div>
-                    <div class="right wall"></div>
-                </div>
-                <div class="small-cube" id="small-cube-22">
-                    <div class="front wall"></div>
-                    <div class="back wall"></div>
-                    <div class="top wall"></div>    
-                    <div class="bottom wall"></div>
-                    <div class="left wall"></div>
-                    <div class="right wall"></div>
-                </div>
-                <div class="small-cube" id="small-cube-23">
-                    <div class="front wall"></div>
-                    <div class="back wall"></div>
-                    <div class="top wall"></div>    
-                    <div class="bottom wall"></div>
-                    <div class="left wall"></div>
-                    <div class="right wall"></div>
-                </div>
-                <div class="small-cube" id="small-cube-24">
-                    <div class="front wall"></div>
-                    <div class="back wall"></div>
-                    <div class="top wall"></div>    
-                    <div class="bottom wall"></div>
-                    <div class="left wall"></div>
-                    <div class="right wall"></div>
-                </div>
-                <div class="small-cube" id="small-cube-25">
-                    <div class="front wall"></div>
-                    <div class="back wall"></div>
-                    <div class="top wall"></div>    
-                    <div class="bottom wall"></div>
-                    <div class="left wall"></div>
-                    <div class="right wall"></div>
-                </div>
-                <div class="small-cube" id="small-cube-26">
-                    <div class="front wall"></div>
-                    <div class="back wall"></div>
-                    <div class="top wall"></div>    
-                    <div class="bottom wall"></div>
-                    <div class="left wall"></div>
-                    <div class="right wall"></div>
-                </div>
-                <div class="small-cube" id="small-cube-27">
-                    <div class="front wall"></div>
-                    <div class="back wall"></div>
-                    <div class="top wall"></div>    
-                    <div class="bottom wall"></div>
-                    <div class="left wall"></div>
-                    <div class="right wall"></div>
-                </div>
+            <div class="small-cube" id="small-cube-3">
+              <div class="front wall"></div>
+              <div class="back wall"></div>
+              <div class="top wall"></div>
+              <div class="bottom wall"></div>
+              <div class="left wall"></div>
+              <div class="right wall"></div>
+            </div>
+            <div class="small-cube" id="small-cube-4">
+              <div class="front wall"></div>
+              <div class="back wall"></div>
+              <div class="top wall"></div>
+              <div class="bottom wall"></div>
+              <div class="left wall"></div>
+              <div class="right wall"></div>
+            </div>
+            <div class="small-cube" id="small-cube-5">
+              <div class="front wall"></div>
+              <div class="back wall"></div>
+              <div class="top wall"></div>
+              <div class="bottom wall"></div>
+              <div class="left wall"></div>
+              <div class="right wall"></div>
+            </div>
+            <div class="small-cube" id="small-cube-6">
+              <div class="front wall"></div>
+              <div class="back wall"></div>
+              <div class="top wall"></div>
+              <div class="bottom wall"></div>
+              <div class="left wall"></div>
+              <div class="right wall"></div>
+            </div>
+            <div class="small-cube" id="small-cube-7">
+              <div class="front wall"></div>
+              <div class="back wall"></div>
+              <div class="top wall"></div>
+              <div class="bottom wall"></div>
+              <div class="left wall"></div>
+              <div class="right wall"></div>
+            </div>
+            <div class="small-cube" id="small-cube-8">
+              <div class="front wall"></div>
+              <div class="back wall"></div>
+              <div class="top wall"></div>
+              <div class="bottom wall"></div>
+              <div class="left wall"></div>
+              <div class="right wall"></div>
+            </div>
+            <div class="small-cube" id="small-cube-9">
+              <div class="front wall"></div>
+              <div class="back wall"></div>
+              <div class="top wall"></div>
+              <div class="bottom wall"></div>
+              <div class="left wall"></div>
+              <div class="right wall"></div>
             </div>
           </div>
-          <div class="move move-right">
-            <i class="fas fa-arrow-alt-circle-right fa-2x top-right" data-direction="top-right"></i>
-            <i class="fas fa-arrow-alt-circle-right fa-2x middle-right" data-direction="middle-right"></i>
-            <i class="fas fa-arrow-alt-circle-right fa-2x bottom-right" data-direction="bottom-right"></i>
+          <div class="cube-middle">
+            <div class="small-cube" id="small-cube-10">
+              <div class="front wall"></div>
+              <div class="back wall"></div>
+              <div class="top wall"></div>
+              <div class="bottom wall"></div>
+              <div class="left wall"></div>
+              <div class="right wall"></div>
+            </div>
+            <div class="small-cube" id="small-cube-11">
+              <div class="front wall"></div>
+              <div class="back wall"></div>
+              <div class="top wall"></div>
+              <div class="bottom wall"></div>
+              <div class="left wall"></div>
+              <div class="right wall"></div>
+            </div>
+            <div class="small-cube" id="small-cube-12">
+              <div class="front wall"></div>
+              <div class="back wall"></div>
+              <div class="top wall"></div>
+              <div class="bottom wall"></div>
+              <div class="left wall"></div>
+              <div class="right wall"></div>
+            </div>
+            <div class="small-cube" id="small-cube-13">
+              <div class="front wall"></div>
+              <div class="back wall"></div>
+              <div class="top wall"></div>
+              <div class="bottom wall"></div>
+              <div class="left wall"></div>
+              <div class="right wall"></div>
+            </div>
+            <div class="small-cube" id="small-cube-14">
+              <div class="front wall"></div>
+              <div class="back wall"></div>
+              <div class="top wall"></div>
+              <div class="bottom wall"></div>
+              <div class="left wall"></div>
+              <div class="right wall"></div>
+            </div>
+            <div class="small-cube" id="small-cube-15">
+              <div class="front wall"></div>
+              <div class="back wall"></div>
+              <div class="top wall"></div>
+              <div class="bottom wall"></div>
+              <div class="left wall"></div>
+              <div class="right wall"></div>
+            </div>
+            <div class="small-cube" id="small-cube-16">
+              <div class="front wall"></div>
+              <div class="back wall"></div>
+              <div class="top wall"></div>
+              <div class="bottom wall"></div>
+              <div class="left wall"></div>
+              <div class="right wall"></div>
+            </div>
+            <div class="small-cube" id="small-cube-17">
+              <div class="front wall"></div>
+              <div class="back wall"></div>
+              <div class="top wall"></div>
+              <div class="bottom wall"></div>
+              <div class="left wall"></div>
+              <div class="right wall"></div>
+            </div>
+            <div class="small-cube" id="small-cube-18">
+              <div class="front wall"></div>
+              <div class="back wall"></div>
+              <div class="top wall"></div>
+              <div class="bottom wall"></div>
+              <div class="left wall"></div>
+              <div class="right wall"></div>
+            </div>
           </div>
-          <div class="move move-right-all">
-            <i class="far fa-arrow-alt-circle-right fa-2x right-all" data-direction="right-all"></i>
+          <div class="cube-bottom">
+            <div class="small-cube" id="small-cube-19">
+              <div class="front wall"></div>
+              <div class="back wall"></div>
+              <div class="top wall"></div>
+              <div class="bottom wall"></div>
+              <div class="left wall"></div>
+              <div class="right wall"></div>
+            </div>
+            <div class="small-cube" id="small-cube-20">
+              <div class="front wall"></div>
+              <div class="back wall"></div>
+              <div class="top wall"></div>
+              <div class="bottom wall"></div>
+              <div class="left wall"></div>
+              <div class="right wall"></div>
+            </div>
+            <div class="small-cube" id="small-cube-21">
+              <div class="front wall"></div>
+              <div class="back wall"></div>
+              <div class="top wall"></div>
+              <div class="bottom wall"></div>
+              <div class="left wall"></div>
+              <div class="right wall"></div>
+            </div>
+            <div class="small-cube" id="small-cube-22">
+              <div class="front wall"></div>
+              <div class="back wall"></div>
+              <div class="top wall"></div>
+              <div class="bottom wall"></div>
+              <div class="left wall"></div>
+              <div class="right wall"></div>
+            </div>
+            <div class="small-cube" id="small-cube-23">
+              <div class="front wall"></div>
+              <div class="back wall"></div>
+              <div class="top wall"></div>
+              <div class="bottom wall"></div>
+              <div class="left wall"></div>
+              <div class="right wall"></div>
+            </div>
+            <div class="small-cube" id="small-cube-24">
+              <div class="front wall"></div>
+              <div class="back wall"></div>
+              <div class="top wall"></div>
+              <div class="bottom wall"></div>
+              <div class="left wall"></div>
+              <div class="right wall"></div>
+            </div>
+            <div class="small-cube" id="small-cube-25">
+              <div class="front wall"></div>
+              <div class="back wall"></div>
+              <div class="top wall"></div>
+              <div class="bottom wall"></div>
+              <div class="left wall"></div>
+              <div class="right wall"></div>
+            </div>
+            <div class="small-cube" id="small-cube-26">
+              <div class="front wall"></div>
+              <div class="back wall"></div>
+              <div class="top wall"></div>
+              <div class="bottom wall"></div>
+              <div class="left wall"></div>
+              <div class="right wall"></div>
+            </div>
+            <div class="small-cube" id="small-cube-27">
+              <div class="front wall"></div>
+              <div class="back wall"></div>
+              <div class="top wall"></div>
+              <div class="bottom wall"></div>
+              <div class="left wall"></div>
+              <div class="right wall"></div>
+            </div>
+          </div>
+        </div>
+        <div class="move move-right">
+          <i
+            class="fas fa-arrow-alt-circle-right fa-2x top-right"
+            data-direction="top-right"
+          ></i>
+          <i
+            class="fas fa-arrow-alt-circle-right fa-2x middle-right"
+            data-direction="middle-right"
+          ></i>
+          <i
+            class="fas fa-arrow-alt-circle-right fa-2x bottom-right"
+            data-direction="bottom-right"
+          ></i>
+        </div>
+        <div class="move move-right-all">
+          <i
+            class="far fa-arrow-alt-circle-right fa-2x right-all"
+            data-direction="right-all"
+          ></i>
         </div>
         <div class="move move-down-all">
-            <i class="far fa-arrow-alt-circle-down fa-2x down-all" data-direction="down-all"></i>
+          <i
+            class="far fa-arrow-alt-circle-down fa-2x down-all"
+            data-direction="down-all"
+          ></i>
         </div>
         <div class="move move-down">
-            <i class="fas fa-arrow-alt-circle-down fa-2x left-down" data-direction="left-down"></i>
-            <i class="fas fa-arrow-alt-circle-down fa-2x center-down" data-direction="center-down"></i>
-            <i class="fas fa-arrow-alt-circle-down fa-2x right-down" data-direction="right-down"></i>
+          <i
+            class="fas fa-arrow-alt-circle-down fa-2x left-down"
+            data-direction="left-down"
+          ></i>
+          <i
+            class="fas fa-arrow-alt-circle-down fa-2x center-down"
+            data-direction="center-down"
+          ></i>
+          <i
+            class="fas fa-arrow-alt-circle-down fa-2x right-down"
+            data-direction="right-down"
+          ></i>
         </div>
-    </div>
-    <nav>
+      </div>
+      <nav>
         <div class="timer">
-            <span>00 : 00 : 00</span>
+          <span>00 : 00 : 00</span>
         </div>
         <div class="controller">
-            <div class="shuffle">
-                <button data-controller="shuffle">SHUFFLE</button>
-            </div>
-            <div class="start">
-                <button data-controller="start">START</button>
-            </div>
-            <div class="reset">
-                <button data-controller="reset">RESET</button>
-            </div>
+          <div class="start">
+            <button data-controller="start">START</button>
+          </div>
+          <div class="reset">
+            <button data-controller="reset">RESET</button>
+          </div>
         </div>
-    </nav>
+      </nav>
     </div>
     <div class="screen">
-        <div class="container-monitor">
-            <div class="monitor-front monitor">
-                <div class="small-monitor"></div>
-                <div class="small-monitor"></div>
-                <div class="small-monitor"></div>
-                <div class="small-monitor"></div>
-                <div class="small-monitor">F</div>
-                <div class="small-monitor"></div>
-                <div class="small-monitor"></div>
-                <div class="small-monitor"></div>
-                <div class="small-monitor"></div>
-            </div>
-            <div class="monitor-back monitor">
-                <div class="small-monitor"></div>
-                <div class="small-monitor"></div>
-                <div class="small-monitor"></div>
-                <div class="small-monitor"></div>
-                <div class="small-monitor">B</div>
-                <div class="small-monitor"></div>
-                <div class="small-monitor"></div>
-                <div class="small-monitor"></div>
-                <div class="small-monitor"></div>
-            </div>
-            <div class="monitor-left monitor">
-                <div class="small-monitor"></div>
-                <div class="small-monitor"></div>
-                <div class="small-monitor"></div>
-                <div class="small-monitor"></div>
-                <div class="small-monitor">L</div>
-                <div class="small-monitor"></div>
-                <div class="small-monitor"></div>
-                <div class="small-monitor"></div>
-                <div class="small-monitor"></div>
-            </div>
-            <div class="monitor-right monitor">
-                <div class="small-monitor"></div>
-                <div class="small-monitor"></div>
-                <div class="small-monitor"></div>
-                <div class="small-monitor"></div>
-                <div class="small-monitor">R</div>
-                <div class="small-monitor"></div>
-                <div class="small-monitor"></div>
-                <div class="small-monitor"></div>
-                <div class="small-monitor"></div>
-            </div>
-            <div class="monitor-top monitor">
-                <div class="small-monitor"></div>
-                <div class="small-monitor"></div>
-                <div class="small-monitor"></div>
-                <div class="small-monitor"></div>
-                <div class="small-monitor">T</div>
-                <div class="small-monitor"></div>
-                <div class="small-monitor"></div>
-                <div class="small-monitor"></div>
-                <div class="small-monitor"></div>
-            </div>
-            <div class="monitor-bottom monitor">
-                <div class="small-monitor"></div>
-                <div class="small-monitor"></div>
-                <div class="small-monitor"></div>
-                <div class="small-monitor"></div>
-                <div class="small-monitor">B</div>
-                <div class="small-monitor"></div>
-                <div class="small-monitor"></div>
-                <div class="small-monitor"></div>
-                <div class="small-monitor"></div>
-            </div>
+      <div class="container-monitor">
+        <div class="monitor-front monitor">
+          <div class="small-monitor"></div>
+          <div class="small-monitor"></div>
+          <div class="small-monitor"></div>
+          <div class="small-monitor"></div>
+          <div class="small-monitor">F</div>
+          <div class="small-monitor"></div>
+          <div class="small-monitor"></div>
+          <div class="small-monitor"></div>
+          <div class="small-monitor"></div>
         </div>
+        <div class="monitor-back monitor">
+          <div class="small-monitor"></div>
+          <div class="small-monitor"></div>
+          <div class="small-monitor"></div>
+          <div class="small-monitor"></div>
+          <div class="small-monitor">B</div>
+          <div class="small-monitor"></div>
+          <div class="small-monitor"></div>
+          <div class="small-monitor"></div>
+          <div class="small-monitor"></div>
+        </div>
+        <div class="monitor-left monitor">
+          <div class="small-monitor"></div>
+          <div class="small-monitor"></div>
+          <div class="small-monitor"></div>
+          <div class="small-monitor"></div>
+          <div class="small-monitor">L</div>
+          <div class="small-monitor"></div>
+          <div class="small-monitor"></div>
+          <div class="small-monitor"></div>
+          <div class="small-monitor"></div>
+        </div>
+        <div class="monitor-right monitor">
+          <div class="small-monitor"></div>
+          <div class="small-monitor"></div>
+          <div class="small-monitor"></div>
+          <div class="small-monitor"></div>
+          <div class="small-monitor">R</div>
+          <div class="small-monitor"></div>
+          <div class="small-monitor"></div>
+          <div class="small-monitor"></div>
+          <div class="small-monitor"></div>
+        </div>
+        <div class="monitor-top monitor">
+          <div class="small-monitor"></div>
+          <div class="small-monitor"></div>
+          <div class="small-monitor"></div>
+          <div class="small-monitor"></div>
+          <div class="small-monitor">T</div>
+          <div class="small-monitor"></div>
+          <div class="small-monitor"></div>
+          <div class="small-monitor"></div>
+          <div class="small-monitor"></div>
+        </div>
+        <div class="monitor-bottom monitor">
+          <div class="small-monitor"></div>
+          <div class="small-monitor"></div>
+          <div class="small-monitor"></div>
+          <div class="small-monitor"></div>
+          <div class="small-monitor">B</div>
+          <div class="small-monitor"></div>
+          <div class="small-monitor"></div>
+          <div class="small-monitor"></div>
+          <div class="small-monitor"></div>
+        </div>
+      </div>
     </div>
-  
-    <script src="https://kit.fontawesome.com/8047cee532.js" crossorigin="anonymous"></script>
+
+    <script
+      src="https://kit.fontawesome.com/8047cee532.js"
+      crossorigin="anonymous"
+    ></script>
     <script type="module" src="./practice.js"></script>
-</body>
+  </body>
 </html>
